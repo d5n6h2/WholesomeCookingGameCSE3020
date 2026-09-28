@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bd5flgwp4l6yv"]
+
+[ext_resource type="Script" uid="uid://bqd8rqa0lbmlo" path="res://scripts/input_controller.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://dxu0vsx5dl41q" path="res://scripts/game_controller.gd" id="1_yqjtg"]
+
+[node name="GameController" type="Node" unique_id=1289521244 node_paths=PackedStringArray("world_2d")]
+script = ExtResource("1_yqjtg")
+world_2d = NodePath("World2D")
+
+[node name="World2D" type="Node2D" parent="." unique_id=70902429]
+
+[node name="Camera2D" type="Camera2D" parent="World2D" unique_id=1997874531]
+
+[node name="InputController" type="Node" parent="." unique_id=1093097966 node_paths=PackedStringArray("actor_one", "actor_two")]
+script = ExtResource("1_uwrxv")
+actor_one = NodePath("")
+actor_two = NodePath("")

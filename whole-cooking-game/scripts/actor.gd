@@ -9,6 +9,8 @@ var move_decel : float = 40.0
 var movement_input: Vector2 = Vector2.ZERO
 var interact_input: bool = false
 
+func _ready() -> void:
+	add_to_group("actor")
 
 func _physics_process(delta: float) -> void:
 	

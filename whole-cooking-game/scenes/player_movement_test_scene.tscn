@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c4nq8144xatta"]
+
+[ext_resource type="Script" uid="uid://ihxhwux6mqd6" path="res://scripts/actor.gd" id="1_w0ew2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bleyb"]
+radius = 32.5
+height = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v4q6e"]
+radius = 33.01515
+
+[node name="PlayerMovementTestScene" type="Node2D" unique_id=1909120556]
+
+[node name="ActorOne" type="CharacterBody2D" parent="." unique_id=1436145247]
+position = Vector2(-280, -1)
+script = ExtResource("1_w0ew2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorOne" unique_id=1350964229]
+mesh = SubResource("SphereMesh_bleyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorOne" unique_id=2042906602]
+shape = SubResource("CircleShape2D_v4q6e")
+
+[node name="ActorTwo" type="CharacterBody2D" parent="." unique_id=1150936064]
+position = Vector2(249, -8)
+script = ExtResource("1_w0ew2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorTwo" unique_id=898966488]
+mesh = SubResource("SphereMesh_bleyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorTwo" unique_id=1202632321]
+shape = SubResource("CircleShape2D_v4q6e")

@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+actor="actor bodies to receive inputs from input controller"
+
 [input]
 
 actor_one_left={
