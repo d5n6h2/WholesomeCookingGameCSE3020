@@ -15,6 +15,7 @@ func _ready() -> void:
 	$InputController.actor_one = actors[0]
 	$InputController.actor_two = actors[1]
 
+
 func initialize_scene_controller() -> void:
 	if not scene_controller:
 		print("game_controller: Error: scene_controller object empty. Cannot initialize scene controller.")

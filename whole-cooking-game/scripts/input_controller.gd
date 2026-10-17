@@ -1,8 +1,8 @@
 extends Node
 
+
 @export var actor_one: Actor
 @export var actor_two: Actor
-
 
 
 func _process(_delta: float) -> void:

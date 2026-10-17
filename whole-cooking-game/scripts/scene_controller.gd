@@ -8,6 +8,7 @@ var gui : Control #container node for holding control children objects
 var current_world_2d : Node2D # reference to current scene loaded as child of world_2d
 var current_gui : Control # reference to current gui scene loaded as child of gui
 
+
 func change_world_2d_scene(new_scene_uid: String, delete: bool = true, 
 keep_running: bool = false) -> void:
 	if current_world_2d != null:
@@ -20,6 +21,7 @@ keep_running: bool = false) -> void:
 	var new_scene = load(new_scene_uid).instantiate()
 	world_2d.add_child(new_scene)
 	current_world_2d = new_scene
+
 
 func change_gui_scene(new_scene_uid: String, delete: bool = true,
 keep_running: bool = false) -> void:

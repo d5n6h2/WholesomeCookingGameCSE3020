@@ -11,7 +11,5 @@ world_2d = NodePath("World2D")
 
 [node name="Camera2D" type="Camera2D" parent="World2D" unique_id=1997874531]
 
-[node name="InputController" type="Node" parent="." unique_id=1093097966 node_paths=PackedStringArray("actor_one", "actor_two")]
+[node name="InputController" type="Node" parent="." unique_id=1093097966]
 script = ExtResource("1_uwrxv")
-actor_one = NodePath("")
-actor_two = NodePath("")
