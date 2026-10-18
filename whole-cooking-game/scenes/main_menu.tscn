@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bl7fp0how1vc0"]
 
-[ext_resource type="Script" uid="uid://w0eod51pi0ot" path="res://WholesomeCookingGameCSE3020-main/main_menu.gd" id="1_yesop"]
+[ext_resource type="Script" uid="uid://w0eod51pi0ot" path="res://scripts/main_menu.gd" id="1_yesop"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40ut7"]
 bg_color = Color(0.6, 0.7882353, 0.5686275, 1)

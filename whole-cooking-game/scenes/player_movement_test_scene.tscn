@@ -13,6 +13,7 @@ radius = 33.01515
 
 [node name="ActorOne" type="CharacterBody2D" parent="." unique_id=1436145247]
 position = Vector2(-280, -1)
+motion_mode = 1
 script = ExtResource("1_w0ew2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="ActorOne" unique_id=1350964229]
@@ -23,6 +24,7 @@ shape = SubResource("CircleShape2D_v4q6e")
 
 [node name="ActorTwo" type="CharacterBody2D" parent="." unique_id=1150936064]
 position = Vector2(249, -8)
+motion_mode = 1
 script = ExtResource("1_w0ew2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="ActorTwo" unique_id=898966488]
