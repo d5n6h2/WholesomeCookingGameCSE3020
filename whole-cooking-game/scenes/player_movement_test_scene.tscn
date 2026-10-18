@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://c4nq8144xatta"]
 
 [ext_resource type="Script" uid="uid://ihxhwux6mqd6" path="res://scripts/actor.gd" id="1_w0ew2"]
+[ext_resource type="Script" uid="uid://c87r5bubkdt3c" path="res://scripts/actor_movement.gd" id="2_bleyb"]
+[ext_resource type="PackedScene" uid="uid://bgtmmv8eby8n4" path="res://scenes/interaction_component.tscn" id="2_v4q6e"]
+[ext_resource type="Script" uid="uid://cgn3g51dmg3ap" path="res://scripts/test_interaction_object.gd" id="4_8shxo"]
+[ext_resource type="PackedScene" uid="uid://b2sovplcg6xa4" path="res://scenes/interactable.tscn" id="5_s3vqv"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bleyb"]
 radius = 32.5
@@ -9,26 +13,62 @@ height = 65.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4q6e"]
 radius = 33.01515
 
+[sub_resource type="QuadMesh" id="QuadMesh_05ayi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5u5kh"]
+radius = 1.1064966
+
 [node name="PlayerMovementTestScene" type="Node2D" unique_id=1909120556]
 
-[node name="ActorOne" type="CharacterBody2D" parent="." unique_id=1436145247]
-position = Vector2(-280, -1)
-motion_mode = 1
+[node name="ActorOne" type="Node2D" parent="." unique_id=1101958769 node_paths=PackedStringArray("character_body", "interaction_component")]
 script = ExtResource("1_w0ew2")
+character_body = NodePath("ActorMovement")
+interaction_component = NodePath("ActorMovement/InteractionComponent")
+metadata/_custom_type_script = "uid://ihxhwux6mqd6"
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorOne" unique_id=1350964229]
+[node name="ActorMovement" type="CharacterBody2D" parent="ActorOne" unique_id=135722501]
+position = Vector2(-264, 0)
+script = ExtResource("2_bleyb")
+metadata/_custom_type_script = "uid://c87r5bubkdt3c"
+
+[node name="InteractionComponent" parent="ActorOne/ActorMovement" unique_id=579036710 instance=ExtResource("2_v4q6e")]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorOne/ActorMovement" unique_id=1350964229]
 mesh = SubResource("SphereMesh_bleyb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorOne" unique_id=2042906602]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorOne/ActorMovement" unique_id=2042906602]
 shape = SubResource("CircleShape2D_v4q6e")
 
-[node name="ActorTwo" type="CharacterBody2D" parent="." unique_id=1150936064]
-position = Vector2(249, -8)
-motion_mode = 1
+[node name="ActorTwo" type="Node2D" parent="." unique_id=1643284868 node_paths=PackedStringArray("character_body", "interaction_component")]
 script = ExtResource("1_w0ew2")
+character_body = NodePath("ActorMovement")
+interaction_component = NodePath("ActorMovement")
+metadata/_custom_type_script = "uid://ihxhwux6mqd6"
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorTwo" unique_id=898966488]
+[node name="ActorMovement" type="CharacterBody2D" parent="ActorTwo" unique_id=962118497]
+position = Vector2(312, -4)
+script = ExtResource("2_bleyb")
+metadata/_custom_type_script = "uid://c87r5bubkdt3c"
+
+[node name="InteractionComponent" parent="ActorTwo/ActorMovement" unique_id=1510513139 instance=ExtResource("2_v4q6e")]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorTwo/ActorMovement" unique_id=898966488]
 mesh = SubResource("SphereMesh_bleyb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorTwo" unique_id=1202632321]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorTwo/ActorMovement" unique_id=1202632321]
 shape = SubResource("CircleShape2D_v4q6e")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1792273983]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1634788267 node_paths=PackedStringArray("interactable")]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(114, -181.99998)
+scale = Vector2(42.5, 43.5)
+mesh = SubResource("QuadMesh_05ayi")
+script = ExtResource("4_8shxo")
+interactable = NodePath("Interactable")
+
+[node name="Interactable" parent="MeshInstance2D" unique_id=658982105 instance=ExtResource("5_s3vqv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/Interactable" unique_id=1372898694]
+shape = SubResource("CircleShape2D_5u5kh")
