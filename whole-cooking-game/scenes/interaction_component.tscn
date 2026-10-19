@@ -5,8 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_5u5kh"]
 radius = 50.0
 
-[node name="InteractionComponent" type="Node2D" unique_id=579036710]
+[node name="InteractionComponent" type="Node2D" unique_id=579036710 node_paths=PackedStringArray("interact_label")]
 script = ExtResource("1_8b000")
+interact_label = NodePath("Label")
 
 [node name="InteractRange" type="Area2D" parent="." unique_id=531190059]
 collision_layer = 0
@@ -15,6 +16,19 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange" unique_id=1054131356]
 shape = SubResource("CircleShape2D_5u5kh")
 debug_color = Color(0.77406645, 0.44236073, 1.92523e-07, 0.41960785)
+
+[node name="Label" type="Label" parent="." unique_id=1630608814]
+visible = false
+z_index = 1
+z_as_relative = false
+offset_left = -40.0
+offset_top = -91.0
+offset_right = 42.0
+offset_bottom = -46.0
+theme_override_font_sizes/font_size = 32
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

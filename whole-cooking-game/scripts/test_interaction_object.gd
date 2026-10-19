@@ -9,5 +9,6 @@ func _ready() -> void:
 
 
 func _on_interact() -> void:
-	interactable.is_interactable = false
-	print("interacted")
+	if interactable.is_interactable:
+		interactable.is_interactable = false
+		print("interacted")

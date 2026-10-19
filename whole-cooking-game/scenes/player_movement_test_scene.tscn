@@ -42,7 +42,7 @@ shape = SubResource("CircleShape2D_v4q6e")
 [node name="ActorTwo" type="Node2D" parent="." unique_id=1643284868 node_paths=PackedStringArray("character_body", "interaction_component")]
 script = ExtResource("1_w0ew2")
 character_body = NodePath("ActorMovement")
-interaction_component = NodePath("ActorMovement")
+interaction_component = NodePath("ActorMovement/InteractionComponent")
 metadata/_custom_type_script = "uid://ihxhwux6mqd6"
 
 [node name="ActorMovement" type="CharacterBody2D" parent="ActorTwo" unique_id=962118497]
