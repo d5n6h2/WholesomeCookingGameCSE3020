@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://csmxokxboclel"]
+
+[ext_resource type="Script" uid="uid://ihxhwux6mqd6" path="res://scripts/actor.gd" id="1_dvlnj"]
+[ext_resource type="Script" uid="uid://c87r5bubkdt3c" path="res://scripts/actor_movement.gd" id="2_654e1"]
+[ext_resource type="PackedScene" uid="uid://bgtmmv8eby8n4" path="res://scenes/interaction_component.tscn" id="3_38jj7"]
+[ext_resource type="Script" uid="uid://uhg30cvkkdwt" path="res://scripts/pizza_oven.gd" id="4_38jj7"]
+[ext_resource type="Resource" uid="uid://b5v3i07lhaoxg" path="res://scripts/resources/items/pizza.tres" id="5_15cjn"]
+[ext_resource type="PackedScene" uid="uid://b2sovplcg6xa4" path="res://scenes/interactable.tscn" id="5_v2yb4"]
+[ext_resource type="Texture2D" uid="uid://cmqoeykvkt6ti" path="res://icon.svg" id="6_v2yb4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bleyb"]
+radius = 32.5
+height = 65.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v4q6e"]
+radius = 33.01515
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ut7"]
+size = Vector2(127, 126)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_40ut7"]
+radius = 109.004585
+
+[node name="PlayerMovementTestScene" type="Node2D" unique_id=1909120556]
+
+[node name="ActorOne" type="Node2D" parent="." unique_id=1101958769 node_paths=PackedStringArray("character_body", "interaction_component")]
+script = ExtResource("1_dvlnj")
+character_body = NodePath("ActorMovement")
+interaction_component = NodePath("ActorMovement/InteractionComponent")
+metadata/_custom_type_script = "uid://ihxhwux6mqd6"
+
+[node name="ActorMovement" type="CharacterBody2D" parent="ActorOne" unique_id=135722501]
+position = Vector2(-264, 0)
+script = ExtResource("2_654e1")
+metadata/_custom_type_script = "uid://c87r5bubkdt3c"
+
+[node name="InteractionComponent" parent="ActorOne/ActorMovement" unique_id=579036710 instance=ExtResource("3_38jj7")]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorOne/ActorMovement" unique_id=1350964229]
+mesh = SubResource("SphereMesh_bleyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorOne/ActorMovement" unique_id=2042906602]
+shape = SubResource("CircleShape2D_v4q6e")
+
+[node name="ActorTwo" type="Node2D" parent="." unique_id=1643284868 node_paths=PackedStringArray("character_body", "interaction_component")]
+script = ExtResource("1_dvlnj")
+character_body = NodePath("ActorMovement")
+interaction_component = NodePath("ActorMovement/InteractionComponent")
+metadata/_custom_type_script = "uid://ihxhwux6mqd6"
+
+[node name="ActorMovement" type="CharacterBody2D" parent="ActorTwo" unique_id=962118497]
+position = Vector2(312, -4)
+script = ExtResource("2_654e1")
+metadata/_custom_type_script = "uid://c87r5bubkdt3c"
+
+[node name="InteractionComponent" parent="ActorTwo/ActorMovement" unique_id=1510513139 instance=ExtResource("3_38jj7")]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ActorTwo/ActorMovement" unique_id=898966488]
+mesh = SubResource("SphereMesh_bleyb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActorTwo/ActorMovement" unique_id=1202632321]
+shape = SubResource("CircleShape2D_v4q6e")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1792273983]
+
+[node name="PizzaOven" type="Node2D" parent="." unique_id=1521459054 node_paths=PackedStringArray("interactable")]
+script = ExtResource("4_38jj7")
+interactable = NodePath("Interactable")
+pizza = ExtResource("5_15cjn")
+
+[node name="Sprite2D" type="Sprite2D" parent="PizzaOven" unique_id=493413259]
+texture = ExtResource("6_v2yb4")
+
+[node name="Area2D" type="Area2D" parent="PizzaOven" unique_id=1209424869]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PizzaOven/Area2D" unique_id=862783001]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_40ut7")
+
+[node name="Interactable" parent="PizzaOven" unique_id=658982105 instance=ExtResource("5_v2yb4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PizzaOven/Interactable" unique_id=1359522913]
+shape = SubResource("CircleShape2D_40ut7")
+debug_color = Color(0, 0.09411765, 0.69803923, 0.41960785)
