@@ -1,6 +1,6 @@
 extends Node
 
-var scene_controller : SceneController = SceneController.new()
+var scene_controller:= SceneController.new()
 
 @export var world_2d : Node2D
 @export var gui : Control
