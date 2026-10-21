@@ -6,6 +6,10 @@ extends Node
 @export var actor_two: Actor
 
 
+func _ready() -> void:
+	EventBus.actor_added.connect(_connect_actor)
+
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("actor_one_interact"):
 		if actor_one.has_method("set_interact_input"):
@@ -39,3 +43,12 @@ func set_actor_two_inputs() -> void:
 	
 	#if actor_two.has_method("set_interact_input"):
 		#actor_two.set_interact_input(Input.is_action_pressed("actor_two_interact"))
+
+
+func _connect_actor(actor: Actor) -> void:
+	if not actor:
+		return
+	if not actor_one:
+		actor_one = actor
+	elif not actor_two:
+		actor_two = actor

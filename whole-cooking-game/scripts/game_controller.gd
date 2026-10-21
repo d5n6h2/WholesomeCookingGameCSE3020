@@ -8,12 +8,7 @@ var scene_controller:= SceneController.new()
 
 func _ready() -> void:
 	initialize_scene_controller()
-	scene_controller.change_world_2d_scene("uid://csmxokxboclel") # uid of appliance test scene
-	# we don't have a signal bus for the actors and the input controller to communicate
-	# so for now, just gonna hardcode and set it as task
-	var actors = get_tree().get_nodes_in_group("actor")
-	$InputController.actor_one = actors[0]
-	$InputController.actor_two = actors[1]
+	scene_controller.change_world_2d_scene("uid://c4nq8144xatta") # uid of main_menu scene
 
 
 func initialize_scene_controller() -> void:

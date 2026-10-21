@@ -17,6 +17,7 @@ var move_decel : float = 40.0
 
 func _ready() -> void:
 	add_to_group("actor")
+	EventBus.actor_added.emit(self)
 
 
 
