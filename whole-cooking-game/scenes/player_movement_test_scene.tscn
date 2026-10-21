@@ -18,6 +18,9 @@ radius = 33.01515
 [sub_resource type="CircleShape2D" id="CircleShape2D_5u5kh"]
 radius = 1.1064966
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty0x5"]
+size = Vector2(1, 1)
+
 [node name="PlayerMovementTestScene" type="Node2D" unique_id=1909120556]
 
 [node name="ActorOne" type="Node2D" parent="." unique_id=1101958769 node_paths=PackedStringArray("character_body", "interaction_component")]
@@ -72,3 +75,9 @@ interactable = NodePath("Interactable")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/Interactable" unique_id=1372898694]
 shape = SubResource("CircleShape2D_5u5kh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MeshInstance2D" unique_id=1988179576]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/StaticBody2D" unique_id=2095863966]
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_ty0x5")
